@@ -1,0 +1,23 @@
+/* Mode Terang (Light Mode) */
+body {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Mode Gelap (Dark Mode) */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.navbar, .dropdown-menu {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode .navbar, body.dark-mode .dropdown-menu {
+    background-color: #222;
+    color: #ddd;
+}
+
+/* Tambahan untuk elemen lainnya sesuai kebutuhan */
