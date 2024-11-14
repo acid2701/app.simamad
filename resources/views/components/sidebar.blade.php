@@ -1,15 +1,16 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html"><b>SIMAMAD</b></a>
+            <a href="home"><b>SIMAMAD</b></a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html"><b>PKU</b></a>
+            <a href="home"><b>PKU</b></a>
         </div>
         <ul class="sidebar-menu">
 
             <li class="nav-item">
-                <a href="home" class="nav-link"><i class="fas fa-fire"></i><span><b>Dashboard</b></span></a>
+                <a href="home" class="nav-link"><i
+                        class="fa-solid fa-house-chimney-window fa-lg"></i><span><b>Dashboard</b></span></a>
             </li>
 
 
@@ -30,7 +31,7 @@
                 </ul>
             </li> --}}
 
-{{--
+            {{--
             <li class="nav-item dropdown {{ 'dashboard' ?: '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-laptop-medical"></i><span><b>Vendor
                             (Testing)</b></span></a>
@@ -56,9 +57,15 @@
             </li> --}}
 
             <li class="nav-item">
+                <a href="{{ route('gaji.index') }}" class="nav-link"><i
+                        class="fa-solid fa-money-bill-transfer fa-lg"></i>
+                    <span><b>Manajemen Gaji</b></span></a>
+            </li>
+
+            {{-- <li class="nav-item">
                 <a href="{{ route('users.index') }}" class="nav-link"><i class="far fa-user"></i>
                     <span><b>Manajemen Users</b></span></a>
-            </li>
+            </li> --}}
 
 
 

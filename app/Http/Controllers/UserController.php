@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\User; // Pastikan model User sudah di-import
+use App\Models\Gaji;  // Jika menggunakan model Gaji untuk tabel v_gaji
 use Illuminate\Http\Request;
 
 class UserController extends Controller

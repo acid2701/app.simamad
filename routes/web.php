@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GajiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
@@ -19,9 +20,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('home', function () {
         return view('pages.dashboard', ['type_menu' => 'home']);
     })->name('home');
+    // Rute logout
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
     // Resource controller untuk 'users'
     Route::resource('users', UserController::class);
-    // Rute logout
-    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+    Route::resource('gaji', GajiController::class);
 });
