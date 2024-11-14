@@ -10,7 +10,7 @@
 @section('main')
     <div class="card card-primary">
         <div class="card-header">
-            <h4>Halaman Masuk</h4>
+            <h4>E-Karyawan Apps</h4>
         </div>
 
         <div class="card-body">
@@ -58,6 +58,8 @@
                         Login
                     </button>
                 </div>
+
+
             </form>
 
             <!-- Link to Register Page -->

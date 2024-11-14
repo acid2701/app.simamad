@@ -50,7 +50,7 @@
 
                                         <head>
                                             <title>
-                                                Slip Gaji
+
                                             </title>
                                             <link
                                                 href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
@@ -63,7 +63,7 @@
                                                 <div class="flex justify-center mb-4">
                                                     <div class="flex items-center space-x-4">
                                                         <img alt="image" src="{{ asset('img/logo.png') }}"
-                                                            class="w-16 h-16">
+                                                            class="w-24 h-24">
                                                         <div class="text-center">
                                                             <h1 class="text-xl sm:text-2xl font-bold">RS PKU AISYIYAH
                                                                 BOYOLALI</h1>
@@ -110,82 +110,85 @@
                                                     </div>
                                                 </div>
 
-                                                <!-- Garis pemisah tebal -->
-                                                <hr class="my-4 border-9 border-gray-900">
+
 
                                                 <!-- Penerimaan dan Potongan -->
-                                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-lg mb-6">
+                                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-9 text-lg mb-6">
                                                     <!-- Penerimaan -->
                                                     <div>
+                                                        <hr class="my-1 border-t-1 border-gray-500">
                                                         <h3 class="font-bold mb-2">PENERIMAAN</h3>
+                                                        <hr class="my-1 border-t-1 border-gray-500">
                                                         <div class="flex justify-between mb-2"><span>Gaji
-                                                                Pokok</span><span>Rp
+                                                                Pokok</span><span>Rp.
                                                                 {{ number_format($gaji->gapok, 0, ',', '.') }}</span></div>
                                                         <div class="flex justify-between mb-2"><span>Tunjangan
-                                                                Jabatan</span><span>Rp
+                                                                Jabatan</span><span>Rp.
                                                                 {{ number_format($gaji->tunjangan_jabatan, 0, ',', '.') }}</span>
                                                         </div>
                                                         <div class="flex justify-between mb-2"><span>Tunjangan
-                                                                Khusus</span><span>Rp
+                                                                Khusus</span><span>Rp.
                                                                 {{ number_format($gaji->tunjangan_khusus, 0, ',', '.') }}</span>
                                                         </div>
-                                                        <div class="flex justify-between mb-2"><span>Lembur</span><span>Rp
+                                                        <div class="flex justify-between mb-2"><span>Lembur</span><span>Rp.
                                                                 {{ number_format($gaji->lembur, 0, ',', '.') }}</span>
                                                         </div>
                                                         <div class="flex justify-between mb-2"><span>Jam
-                                                                Malam</span><span>Rp
+                                                                Malam</span><span>Rp.
                                                                 {{ number_format($gaji->jam_malam, 0, ',', '.') }}</span>
                                                         </div>
                                                         <div class="flex justify-between mb-2"><span>Insentif
-                                                                (1)</span><span>Rp
+                                                                (1)</span><span>Rp.
                                                                 {{ number_format($gaji->insentif, 0, ',', '.') }}</span>
                                                         </div>
                                                     </div>
 
                                                     <!-- Potongan -->
                                                     <div>
+                                                        <hr class="my-1 border-t-1 border-gray-500">
                                                         <h3 class="font-bold mb-2">POTONGAN</h3>
+                                                        <hr class="my-1 border-t-1 border-gray-500">
                                                         <div class="flex justify-between mb-2"><span>BPJS
-                                                                Kesehatan</span><span>Rp
+                                                                Kesehatan</span><span>Rp.
                                                                 {{ number_format($gaji->iuran_bpjs, 0, ',', '.') }}</span>
                                                         </div>
-                                                        <div class="flex justify-between mb-2"><span>JHT</span><span>Rp
+                                                        <div class="flex justify-between mb-2"><span>JHT</span><span>Rp.
                                                                 {{ number_format($gaji->jht, 0, ',', '.') }}</span></div>
                                                         <div class="flex justify-between mb-2"><span>Simpanan
-                                                                Wajib</span><span>Rp
+                                                                Wajib</span><span>Rp.
                                                                 {{ number_format($gaji->simpanan_wajib, 0, ',', '.') }}</span>
                                                         </div>
                                                         <div class="flex justify-between mb-2"><span>Dana
-                                                                Sosial</span><span>Rp
+                                                                Sosial</span><span>Rp.
                                                                 {{ number_format($gaji->dana_sosial, 0, ',', '.') }}</span>
                                                         </div>
-                                                        <div class="flex justify-between mb-2"><span>Absensi</span><span>Rp
+                                                        <div class="flex justify-between mb-2"><span>Absensi</span><span>Rp.
                                                                 {{ number_format($gaji->absensi, 0, ',', '.') }}</span>
                                                         </div>
                                                         <div class="flex justify-between mb-2"><span>Absensi
-                                                                Kegiatan</span><span>Rp
+                                                                Kegiatan</span><span>Rp.
                                                                 {{ number_format($gaji->pertemuan, 0, ',', '.') }}</span>
                                                         </div>
                                                         <div class="flex justify-between mb-2"><span>Kewajiban Hutang
-                                                                (BPD)</span><span>Rp
+                                                                (BPD)</span><span>Rp.
                                                                 {{ number_format($gaji->kewajiban_hutang, 0, ',', '.') }}</span>
                                                         </div>
-                                                        <div class="flex justify-between mb-2"><span>Zakat</span><span>Rp
+                                                        <div class="flex justify-between mb-2"><span>Zakat</span><span>Rp.
                                                                 {{ number_format($gaji->zakat, 0, ',', '.') }}</span></div>
-                                                        <div class="flex justify-between mb-2"><span>PPh 21</span><span>Rp
+                                                        <div class="flex justify-between mb-2"><span>PPh 21</span><span>Rp.
                                                                 {{ number_format($gaji->pph, 0, ',', '.') }}</span></div>
-                                                        <div class="flex justify-between mb-2"><span>Sembako</span><span>Rp
+                                                        <div class="flex justify-between mb-2"><span>Sembako</span><span>Rp.
                                                                 {{ number_format($gaji->sembako, 0, ',', '.') }}</span>
                                                         </div>
                                                         <div class="flex justify-between mb-2"><span>Tabungan
-                                                                Koperasi</span><span>Rp
+                                                                Koperasi</span><span>Rp.
                                                                 {{ number_format($gaji->tabungan, 0, ',', '.') }}</span>
                                                         </div>
                                                         <div class="flex justify-between mb-2"><span>Bon
-                                                                Obat/Lab/Rad</span><span>Rp
+                                                                Obat/Lab/Rad</span><span>Rp.
                                                                 {{ number_format($gaji->bon, 0, ',', '.') }}</span></div>
                                                         <div class="flex justify-between mb-2"><span>Lain -
-                                                                Lain</span><span>Rp
+                                                                Lain</span><span>Rp.
                                                                 {{ number_format($gaji->lain_lain, 0, ',', '.') }}</span>
                                                         </div>
                                                     </div>
@@ -193,19 +196,22 @@
 
                                                 <!-- THP (Gaji) -->
                                                 <div class="text-lg mb-6">
+                                                    <hr class="my-1 border-t-1 border-gray-500">
                                                     <div class="flex justify-between font-bold"><span>THP
-                                                            (Gaji)</span><span>Rp
+                                                            (Gaji)</span><span>Rp.
                                                             {{ number_format($gaji->jumlah_terima, 0, ',', '.') }}</span>
                                                     </div>
+                                                    <hr class="my-1 border-t-1 border-gray-500">
                                                 </div>
 
                                                 <!-- Insentif (2) -->
                                                 <div class="text-lg mb-6">
                                                     <h3 class="font-bold mb-2">Insentif (2)</h3>
-                                                    <div class="flex justify-between"><span>Penghasilan Bruto</span><span>Rp
+                                                    <div class="flex justify-between"><span>Penghasilan
+                                                            Bruto</span><span>Rp.
                                                             {{ number_format($gaji->jumlah_gaji, 0, ',', '.') }}</span>
                                                     </div>
-                                                    <div class="flex justify-between"><span>Jml. Potongan</span><span>Rp
+                                                    <div class="flex justify-between"><span>Jml. Potongan</span><span>Rp.
                                                             {{ number_format($gaji->jumlah_pot, 0, ',', '.') }}</span>
                                                     </div>
                                                 </div>
@@ -213,9 +219,10 @@
                                                 <!-- Total THP -->
                                                 <div class="text-lg mb-6 bg-yellow-100 p-4 rounded-lg">
                                                     <div class="flex justify-between font-bold text-yellow-800"><span>TOTAL
-                                                            THP</span><span>Rp
+                                                            THP</span><span>Rp.
                                                             {{ number_format($gaji->jumlah_terima, 0, ',', '.') }}</span>
                                                     </div>
+
                                                 </div>
 
                                                 <div
@@ -230,12 +237,6 @@
                                                 </div>
                                             </div>
                                         </body>
-
-
-
-
-
-
 
 
 

@@ -30,6 +30,12 @@ class LoginController extends Controller
         ]);
     }
 
+    public function showLoginForm()
+    {
+        return redirect('/');
+    }
+
+
     public function logout(Request $request)
     {
         Auth::logout();
