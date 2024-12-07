@@ -13,23 +13,20 @@
                         class="fa-solid fa-house-chimney-window fa-lg"></i><span><b>Dashboard</b></span></a>
             </li>
 
-
-            {{-- <li class="nav-item dropdown {{ 'dashboard' ?: '' }}">
+            <li class="nav-item dropdown {{ 'dashboard' ?: '' }}">
                 <a href="#" class="nav-link has-dropdown"><i
-                        class="far fa-file-alt"></i><span><b>Pelaporan</b></span></a>
+                        class="fa-solid fa-briefcase fa-lg"></i><span><b>Absensi</b></span></a>
                 <ul class="dropdown-menu">
                     <li class='{{ Request::is('#') ? 'active' : '' }}'>
-                        <a class="nav-link" href="{{ url('https://taplink.cc/casemanager') }}">Sistem Informasi
-                            Layanan </a>
+                        <a class="nav-link" href="{{ route('absen-apm.index') }}">Absensi Apm</a>
                     </li>
+
                     <li class='{{ Request::is('#') ? 'active' : '' }}'>
-                        <a class="nav-link" href="{{ url('https://taplink.cc/sidok') }}">Sistem Informasi Dokter</a>
+                        <a class="nav-link" href="{{ route('absen-rekap.index') }}">Rekap Absen</a>
                     </li>
-                    <li class='{{ Request::is('#') ? 'active' : '' }}'>
-                        <a class="nav-link" href="{{ url('https://taplink.cc/karukoor') }}">E-Performa Koordinator</a>
-                    </li>
+
                 </ul>
-            </li> --}}
+            </li>
 
             {{--
             <li class="nav-item dropdown {{ 'dashboard' ?: '' }}">
@@ -49,11 +46,12 @@
             <li class="nav-item">
                 <a href="{{ route('kilats.index') }}" class="nav-link"><i class="fa-solid fa-comments"></i>
                     <span><b>Manajemen Kilats</b></span></a>
-            </li>
+            </li> --}}
 
-            <li class="nav-item">
-                <a href="{{ route('pakkus.index') }}" class="nav-link"><i class="fa-solid fa-comments"></i>
-                    <span><b>Manajemen Pakku</b></span></a>
+
+            {{-- <li class="nav-item">
+                <a href="{{ route('pakku.create') }}" class="nav-link"><i class="fa-solid fa-comments"></i>
+                    <span><b>Lapor Pakku</b></span></a>
             </li> --}}
 
             <li class="nav-item">

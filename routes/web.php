@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AbsenApmController;
+use App\Http\Controllers\AbsenRekapController;
 use App\Http\Controllers\GajiController;
+use App\Http\Controllers\PakkuController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
@@ -26,4 +29,7 @@ Route::middleware(['auth'])->group(function () {
     // Resource controller untuk 'users'
     Route::resource('users', UserController::class);
     Route::resource('gaji', GajiController::class);
+    Route::resource('pakku', PakkuController::class);
+    Route::resource('absen-apm', AbsenApmController::class);
+    Route::resource('absen-rekap', AbsenRekapController::class);
 });

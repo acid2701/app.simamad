@@ -25,12 +25,12 @@ class GajiController extends Controller
             // Cari gaji berdasarkan namabulan dan id_karyawan
             $gaji = Gaji::where('namabulan', 'like', '%' . $namabulan . '%')
                 ->where('id_karyawan', $userId)
-                ->orderby('id', 'ASC')
+                ->orderby('id', 'desc')
                 ->paginate(10);
         } else {
             // Jika tidak ada pencarian, ambil semua data berdasarkan id_karyawan
             $gaji = Gaji::where('id_karyawan', $userId)
-                ->orderby('id', 'ASC')
+                ->orderby('id', 'desc')
                 ->paginate(10);
         }
 

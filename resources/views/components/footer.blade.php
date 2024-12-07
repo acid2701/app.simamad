@@ -4,6 +4,6 @@
 
     </div>
     <div class="footer-right">
-        2.01.27
+        2.69.27
     </div>
 </footer>

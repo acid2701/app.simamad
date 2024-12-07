@@ -18,7 +18,7 @@ class User extends Authenticatable
     {
         return self::first();  // Mengambil item pertama dari model
     }
-    
+
     protected $fillable = [
         'id_nik',
         'username',

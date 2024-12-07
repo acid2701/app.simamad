@@ -10,6 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
+        $user = User::all();
         // Validasi input untuk username (opsional, jika ingin memastikan query tidak kosong)
         $username = request('username') ? '%' . request('username') . '%' : '%';
 
@@ -22,5 +23,17 @@ class UserController extends Controller
         $firstUser = $user->first(); // Bisa digunakan jika ingin memproses data pertama, jika perlu
 
         return view('pages.users.index', compact('user', 'firstUser'));
+    }
+
+    public function edit(User $user)
+    {
+        return view('pages.users.edit', compact(var_name: 'user'));
+    }
+
+    public function update(Request $request, User $user)
+    {
+
+        
+        return redirect()->route('users.index')->with('berhasil', 'Data user berhasil di Update');
     }
 }

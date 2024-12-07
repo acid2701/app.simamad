@@ -78,7 +78,9 @@
                                                 </div>
 
                                                 <!-- Slip Gaji Title -->
-                                                <h4 class="text-center text-3xl sm:text-4xl font-bold mb-3">SLIP GAJI</h4>
+                                                <h4 class="text-center text-3xl sm:text-4xl font-bold text-gray-600 mb-3">
+                                                    SLIP GAJI</h4>
+
 
                                                 <!-- Karyawan Info -->
                                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-lg mb-1">
