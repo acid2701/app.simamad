@@ -29,24 +29,6 @@
             </li>
 
             {{--
-            <li class="nav-item dropdown {{ 'dashboard' ?: '' }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-laptop-medical"></i><span><b>Vendor
-                            (Testing)</b></span></a>
-                <ul class="dropdown-menu">
-                    <li class='{{ Request::is('#') ? 'active' : '' }}'>
-                        <a class="nav-link" href="{{ route('vendors.index') }}">Vendor</a>
-                    </li>
-                    <li class='{{ Request::is('#') ? 'active' : '' }}'>
-                        <a class="nav-link" href="{{ route('cvendors.index') }}">Kategori Vendor</a>
-                    </li>
-
-                </ul>
-            </li>
-
-            <li class="nav-item">
-                <a href="{{ route('kilats.index') }}" class="nav-link"><i class="fa-solid fa-comments"></i>
-                    <span><b>Manajemen Kilats</b></span></a>
-            </li> --}}
 
 
             {{-- <li class="nav-item">

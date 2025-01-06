@@ -33,6 +33,16 @@
         gtag('config', 'UA-94034622-3');
     </script>
     <!-- END GA -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+
+
+
+
 </head>
 
 
@@ -71,8 +81,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <!-- Link SweetAlert JS -->
 
-
     @yield('scripts') <!-- Pastikan ini di bawah link SweetAlert JS -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 

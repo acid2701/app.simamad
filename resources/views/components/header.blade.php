@@ -23,19 +23,32 @@
             </a>
         </li> --}}
 
-        <li class="dropdown"><a href="#" data-toggle="dropdown"
-                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+        <li class="dropdown">
+            <a href="#" data-toggle="dropdown"
+                class="nav-link dropdown-toggle nav-link-lg nav-link-user d-flex justify-content-between align-items-center">
+
+                <!-- Gambar Avatar (Kiri) -->
                 <img alt="image" src="{{ asset('img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
-                <div class="d-sm-none d-lg-inline-block">Hai, {{ auth()->user()->username }}</div>
+
+                <!-- Nama Karyawan (Tengah) -->
+                <div class="d-sm-none d-lg-inline-block">Hello, {{ auth()->user()->karyawan->nama_karyawan ?? 'Guest' }}
+                </div>
+
+
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-
-                <a href="#" class="dropdown-item has-icon">
+                <a href="{{ route('profile.index') }}" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
                 </a>
-                <a href="features-settings.html" class="dropdown-item has-icon">
+
+                <a href="#" class="dropdown-item has-icon">
                     <i class="fas fa-cog"></i> Settings
                 </a>
+
+                <a href="https://portal.rspkuboyolali.co.id" class="dropdown-item has-icon">
+                    <i class="fas fa-solid fa-globe"></i> Portal
+                </a>
+
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item has-icon text-danger"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit()">
@@ -45,8 +58,9 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
-
             </div>
         </li>
+
+
     </ul>
 </nav>

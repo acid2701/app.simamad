@@ -2,13 +2,16 @@
 
 use App\Http\Controllers\AbsenApmController;
 use App\Http\Controllers\AbsenRekapController;
+use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\GajiController;
+use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\PakkuController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CutiController;
 
 Route::get('/', function () {
     return view('pages.auth.auth-login');
@@ -32,4 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('pakku', PakkuController::class);
     Route::resource('absen-apm', AbsenApmController::class);
     Route::resource('absen-rekap', AbsenRekapController::class);
+    Route::resource('profile', KaryawanController::class);
+    Route::resource('absensi', AbsensiController::class);
+    Route::resource('cuti', CutiController::class);
 });

@@ -24,16 +24,47 @@
             <div class="row mt-4">
                 <div class="col-12">
                     <div class="card">
+
                         <div class="card-body">
-                            <div
-                                style="display: flex; justify-content: center; align-items: flex-start; height: 100vh; padding-top: 10vh;">
-                                <h1 style="font-size: 20rem; text-align: center;">
-                                    {!! $barcode !!}
-                                </h1>
+                            <div class="d-flex justify-content-center align-items-center"
+                                style="height: 50vh; padding-top: 3vh;">
+                                <div class="text-center p-5"
+                                    style="background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                                    <h1 class="mb-4" style="font-size: 2.5rem; font-weight: 600; color: #333;">Barcode
+                                        Karyawan</h1>
+
+                                    <!-- Barcode Section -->
+                                    <div class="mb-9">
+                                        <h3 class="mb-4" style="font-size: 1.5rem; font-weight: 500; color: #555;">
+
+                                        </h3>
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <!-- Barcode berada di tengah secara vertikal dan horizontal -->
+                                            <div>{!! $barcode !!}</div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- Nama Karyawan -->
+                                    <p class="lead mb-2" style="font-size: 1.2rem; color: #555;">Nama Karyawan: <span
+                                            class="text-black">{{ $karyawan->nama_karyawan }}</span></p>
+
+                                    <!-- NIK Karyawan -->
+                                    <p class="lead mb-2" style="font-size: 1.2rem; color: #555;">Nik Karyawan: <span
+                                            class="text-black">{{ $karyawan->nik_karyawan }}</span></p>
+
+                                    <!-- Unit Karyawan -->
+                                    <p class="lead mb-2" style="font-size: 1.2rem; color: #555;">Unit Karyawan: <span
+                                            class="text-black">{{ $karyawan->unit_karyawan }}</span></p>
+
+
+                                    {{-- <!-- Optional Button or Action -->
+                                    <a href="{{ route('some.route') }}" class="btn btn-primary mt-3"
+                                        style="font-weight: 500; padding: 10px 20px; font-size: 1rem;">Download Barcode</a> --}}
+                                </div>
                             </div>
                         </div>
-
-                        
 
                     </div>
                 </div>

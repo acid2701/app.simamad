@@ -14,14 +14,21 @@ class AbsenApmController extends Controller
     public function index()
     {
         // Ambil data user yang sedang login
-        $user = Auth::user();  // Tidak perlu menerima parameter $id lagi
+        $user = Auth::user();
 
-        // Menggunakan BarcodeGeneratorHTML untuk menghasilkan barcode dalam format HTML
+        // Ambil data karyawan berdasarkan relasi
+        $karyawan = $user->karyawan; // Mengambil data karyawan terkait
+
+        // Jika tidak ada data karyawan, berikan respon alternatif
+        if (!$karyawan) {
+            return redirect()->back()->with('error', 'Data karyawan tidak ditemukan untuk user ini.');
+        }
+
+        // Menggunakan BarcodeGeneratorHTML untuk menghasilkan barcode
         $generator = new BarcodeGeneratorHTML();
-        $barcode = $generator->getBarcode($user->id_nik, BarcodeGenerator::TYPE_CODE_128);
+        $barcode = $generator->getBarcode($karyawan->id, BarcodeGenerator::TYPE_CODE_128, 5, 90);
 
         // Kirim data ke view
-        return view('pages.absen-apm.index', compact('user', 'barcode'));
+        return view('pages.absen-apm.index', compact('user', 'karyawan', 'barcode'));
     }
-    
 }
