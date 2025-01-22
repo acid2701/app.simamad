@@ -26,7 +26,7 @@ class AbsenApmController extends Controller
 
         // Menggunakan BarcodeGeneratorHTML untuk menghasilkan barcode
         $generator = new BarcodeGeneratorHTML();
-        $barcode = $generator->getBarcode($karyawan->id, BarcodeGenerator::TYPE_CODE_128, 5, 90);
+        $barcode = $generator->getBarcode($user->token, BarcodeGenerator::TYPE_CODE_128, 2, 80);
 
         // Kirim data ke view
         return view('pages.absen-apm.index', compact('user', 'karyawan', 'barcode'));

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Cuti')
+@section('title', 'Reakap Cuti')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -11,7 +11,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Cuti Karyawan</h1>
+                <h1>Rekap Cuti</h1>
 
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="{{ route('home') }}">Dashboard</a></div>

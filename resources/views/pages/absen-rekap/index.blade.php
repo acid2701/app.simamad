@@ -65,12 +65,12 @@
                                             <form action="{{ route('absen-rekap.index') }}" method="GET">
                                                 <div class="row mb-3">
                                                     <div class="col-md-6">
-                                                        <label for="tanggalmasuk" class="form-label">Tanggal Masuk</label>
+                                                        <label for="tanggalmasuk" class="form-label">Dari</label>
                                                         <input type="date" class="form-control" id="tanggalmasuk"
                                                             name="tanggalmasuk" x-model="tanggalMasuk">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <label for="tanggalkeluar" class="form-label">Tanggal Pulang</label>
+                                                        <label for="tanggalkeluar" class="form-label">Sampai</label>
                                                         <input type="date" class="form-control" id="tanggalkeluar"
                                                             name="tanggalkeluar" x-model="tanggalKeluar">
                                                     </div>
@@ -99,7 +99,7 @@
                                                     class="btn btn-link w-full text-left p-2 hover:bg-indigo-100 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-xl flex justify-between items-center"
                                                     @click="openIndex = (openIndex === index ? null : index)">
                                                     <strong class="text-sm text-gray-600">
-                                                        {{ \Carbon\Carbon::parse($rekap->tanggalmasuk)->translatedFormat('l, d F Y') }}
+                                                         {{ \Carbon\Carbon::parse($rekap->tanggalmasuk)->translatedFormat('l, d F Y') }}
                                                     </strong>
                                                     <svg class="w-6 h-6 text-indigo-500 transform transition-transform duration-300"
                                                         :class="{ 'rotate-180': openIndex === index }"
@@ -113,29 +113,29 @@
                                                 <!-- Isi dropdown yang berisi informasi lain -->
                                                 <div x-show="openIndex === index" class="list-group mt-3 space-y-2">
                                                     <div class="list-group-item bg-indigo-40 p-4 rounded-xl shadow-sm">
-                                                        <strong class="text-indigo-700">Tanggal Masuk: </strong>
+                                                        <strong class="text-indigo-40">Tanggal Masuk:<br> </strong>
                                                         {{ $rekap->tanggalmasuk ? \Carbon\Carbon::parse($rekap->tanggalmasuk)->translatedFormat('l, d F Y') : '-' }}
                                                     </div>
 
                                                     <div class="list-group-item bg-indigo-40 p-4 rounded-xl shadow-sm">
-                                                        <strong class="text-indigo-700">Tanggal Pulang: </strong>
+                                                        <strong class="text-indigo-40">Tanggal Pulang:<br>  </strong>
                                                         {{ $rekap->tanggalkeluar ? \Carbon\Carbon::parse($rekap->tanggalkeluar)->translatedFormat('l, d F Y') : '-' }}
                                                     </div>
 
                                                     <div class="list-group-item bg-indigo-40 p-4 rounded-xl shadow-sm">
-                                                        <strong class="text-indigo-700">Jam Masuk: </strong>
+                                                        <strong class="text-indigo-40">Jam Masuk:<br>  </strong>
                                                         {{ \Carbon\Carbon::parse($rekap->jammasuk)->translatedFormat('H:i:s') }}
                                                         WIB
                                                     </div>
 
                                                     <div class="list-group-item bg-indigo-40 p-4 rounded-xl shadow-sm">
-                                                        <strong class="text-indigo-700">Jam Pulang: </strong>
+                                                        <strong class="text-indigo-40">Jam Pulang:<br>  </strong>
                                                         {{ $rekap->jamkeluar ? \Carbon\Carbon::parse($rekap->jamkeluar)->translatedFormat('H:i:s') : '-' }}
                                                         WIB
                                                     </div>
 
                                                     <div class="list-group-item bg-indigo-40 p-4 rounded-xl shadow-sm">
-                                                        <strong class="text-indigo-700">Lama Bekerja: </strong>
+                                                        <strong class="text-indigo-40">Lama Bekerja:<br>  </strong>
                                                         {{ $rekap->Jam ? \Carbon\Carbon::parse($rekap->Jam)->translatedFormat('H:i:s') : '-' }}
                                                     </div>
                                                 </div>

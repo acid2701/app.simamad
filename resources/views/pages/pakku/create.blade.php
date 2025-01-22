@@ -25,8 +25,14 @@
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">Buat Laporan</h2>
 
+                <div class="row">
+                    <div class="col-12">
+                        @include('layouts.alert')
+                    </div>
+                </div>
+
+                <h2 class="section-title">Buat Laporan</h2>
 
                 <div class="card">
                     <form action="{{ route('pakku.store') }}" method="POST" enctype="multipart/form-data">

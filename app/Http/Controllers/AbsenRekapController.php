@@ -29,7 +29,7 @@ class AbsenRekapController extends Controller
                 ->whereDate('tanggalmasuk', '>=', $tanggalmasuk)  // Filter berdasarkan tanggal masuk
                 ->whereDate('tanggalkeluar', '<=', $tanggalkeluar) // Filter berdasarkan tanggal keluar
                 ->orderby('id', 'desc')
-                ->paginate(10);
+                ->paginate(7);
         }
         // Jika hanya ada pencarian berdasarkan tanggalmasuk
         elseif ($tanggalmasuk) {
@@ -37,7 +37,7 @@ class AbsenRekapController extends Controller
             $absenrekap = AbsenRekap::where('nik_karyawan', $userId)
                 ->whereDate('tanggalmasuk', $tanggalmasuk)  // Menggunakan whereDate untuk pencarian tanggal masuk
                 ->orderby('id', 'desc')
-                ->paginate(10);
+                ->paginate(7);
         }
         // Jika hanya ada pencarian berdasarkan tanggalkeluar
         elseif ($tanggalkeluar) {
@@ -45,13 +45,13 @@ class AbsenRekapController extends Controller
             $absenrekap = AbsenRekap::where('nik_karyawan', $userId)
                 ->whereDate('tanggalkeluar', $tanggalkeluar)  // Menggunakan whereDate untuk pencarian tanggal keluar
                 ->orderby('id', 'desc')
-                ->paginate(10);
+                ->paginate(7);
         }
         // Jika tidak ada input pencarian, ambil data semua berdasarkan nik_karyawan
         else {
             $absenrekap = AbsenRekap::where('nik_karyawan', $userId)
                 ->orderby('id', 'desc')
-                ->paginate(10);
+                ->paginate(7);
         }
 
         // Kirim data ke view

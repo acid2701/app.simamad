@@ -60,7 +60,7 @@ class GajiController extends Controller
      */
     public function show($id)
     {
-        $gaji = Gaji::find($id); // Ambil data vendor berdasarkan ID
+        $gaji = Gaji::find($id); // Ambil data gaji berdasarkan ID
         return view('pages.gaji.show', compact('gaji')); // Kirim data vendor ke view
     }
 
