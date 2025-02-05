@@ -39,9 +39,12 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.21/dist/sweetalert2.min.css">
 
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
 
-
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 </head>
 
@@ -55,11 +58,16 @@
             <!-- Sidebar -->
             @include('components.sidebar')
 
+
             <!-- Content -->
             @yield('main')
 
             <!-- Footer -->
             @include('components.footer')
+
+            <!-- Navbar -->
+            @include('components.navbar')
+
         </div>
     </div>
 
@@ -78,7 +86,7 @@
     <script src="{{ asset('js/scripts.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
     <!-- SweetAlert JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Link SweetAlert JS -->
 
     @yield('scripts') <!-- Pastikan ini di bawah link SweetAlert JS -->

@@ -46,9 +46,6 @@
                                     <option value="IJIN"
                                         {{ old('jenis_pengajuan', $cuti->jenis_pengajuan ?? '') == 'IJIN' ? 'selected' : '' }}>
                                         IJIN</option>
-                                    <option value="ABSEN"
-                                        {{ old('jenis_pengajuan', $cuti->jenis_pengajuan ?? '') == 'ABSEN' ? 'selected' : '' }}>
-                                        ABSEN</option>
                                 </select>
 
                             </div>
@@ -73,7 +70,7 @@
 
 
                         <div class="card-footer text-right">
-                            <button class="btn btn-primary">Kirim Pengajuan</button>
+                            <button id="showAlertButton" class="btn btn-primary">Kirim Pengajuan</button>
                         </div>
                     </form>
                 </div>
@@ -98,4 +95,5 @@
 
     <!-- Page Specific JS File -->
     <script src="{{ asset('js/page/forms-advanced-forms.js') }}"></script>
+    <script src="{{ asset('js/succes/cuti.js') }}"></script>
 @endpush

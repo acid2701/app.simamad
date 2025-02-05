@@ -48,7 +48,7 @@
 
             <li class="nav-item dropdown {{ 'dashboard' ?: '' }}">
                 <a href="#" class="nav-link has-dropdown"><i
-                        class="fa-solid fa-money-bill-transfer"></i><span><b>Keuangan</b></span></a>
+                        class="fa-solid fa-money-bill-transfer fa-lg"></i><span><b>Keuangan</b></span></a>
                 <ul class="dropdown-menu">
 
                     <li class='{{ Request::is('#') ? 'active' : '' }}'>
@@ -58,10 +58,40 @@
                 </ul>
             </li>
 
+            <li class="nav-item dropdown {{ 'dashboard' ?: '' }}">
+                <a href="#" class="nav-link has-dropdown"><i
+                        class="fa-solid fa-magnifying-glass-chart fa-lg"></i><span><b>Asset</b></span></a>
+                <ul class="dropdown-menu">
+
+                    <li class='{{ Request::is('#') ? 'active' : '' }}'>
+                        <a class="nav-link" href="{{ route('asset-barcode.index') }}">Scan Asset</a>
+                    </li>
+
+                </ul>
+            </li>
+
             <li class="nav-item">
-                <a href="{{ route('pakku.create') }}" class="nav-link"><i class="fa-solid fa-comments"></i>
+                <a href="{{ route('pakku.create') }}" class="nav-link"><i class="fa-solid fa-comments fa-lg"></i>
                     <span><b>Lapor Pakku</b></span></a>
             </li>
+
+
+
+            <li class="nav-item dropdown {{ 'dashboard' ?: '' }}">
+                <a href="#" class="nav-link has-dropdown"><i
+                        class="fa-solid fa-book-medical fa-lg"></i><span><b>Digilib</b></span></a>
+                <ul class="dropdown-menu">
+
+                    <li class="nav-item">
+                        <a href="{{ asset('storage/digilib/PP-RSPKUA-periode-2025-2027.pdf') }}" class="nav-link" target="_blank">
+                            <span><b>PP 2025-2027</b></span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+
 
             {{-- <li class="nav-item">
                 <a href="{{ route('users.index') }}" class="nav-link"><i class="far fa-user"></i>

@@ -39,54 +39,52 @@
                                     Carbon::setLocale('id');
                                 @endphp
 
+<!-- Modal pencarian popup-->
+<div x-data="{ isOpen: false, tanggalMasuk: '{{ request('tanggalmasuk') }}' }">
+    <div class="flex justify-between mb-4">
+        <!-- Tombol untuk membuka modal pencarian (kanan) -->
+        <div class="text-right">
+            <button @click="isOpen = !isOpen" class="btn btn-primary">
+                Pencarian
+            </button>
+        </div>
+    </div>
 
-                                <!-- Modal pencarian popup-->
-                                <div x-data="{ isOpen: false, tanggalMasuk: '{{ request('tanggalmasuk') }}', tanggalKeluar: '{{ request('tanggalkeluar') }}' }">
-                                    <!-- Tombol untuk membuka modal -->
-                                    <div class="text-right">
-                                        <button @click="isOpen = !isOpen" class="btn btn-primary mb-4">
-                                            Pencarian
-                                        </button>
-                                    </div>
+    <!-- Modal -->
+    <div x-show="isOpen" x-transition
+        class="fixed inset-0 bg-gray-500 bg-opacity-75 z-50 flex items-center justify-center">
+        <!-- Modal content -->
+        <div class="bg-white rounded-xl p-6 w-96">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold">Pencarian</h3>
+                <button @click="isOpen = false" class="text-xl text-gray-500">&times;</button>
+            </div>
 
+            <!-- Form Pencarian -->
+            <form action="{{ route('absen-rekap.index') }}" method="GET">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="tgl_absen_dari" class="form-label">Dari</label>
+                        <input type="date" class="form-control" id="tgl_absen_dari" name="tgl_absen_dari" x-model="tgl_absen_dari">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="tgl_absen_sampai" class="form-label">Sampai</label>
+                        <input type="date" class="form-control" id="tgl_absen_sampai" name="tgl_absen_sampai" x-model="tgl_absen_sampai">
+                    </div>
+                </div>
+                <div class="flex justify-between">
+                    <button type="submit" class="btn btn-primary mt-4">Cari</button>
+                    <!-- Tombol Clear Pencarian -->
+                    <button type="button" @click="tanggalMasuk = ''"
+                        class="btn btn-warning mt-4">
+                        Clear
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
-                                    <!-- Modal -->
-                                    <div x-show="isOpen" x-transition
-                                        class="fixed inset-0 bg-gray-500 bg-opacity-75 z-50 flex items-center justify-center">
-                                        <!-- Modal content -->
-                                        <div class="bg-white rounded-xl p-6 w-96">
-                                            <div class="flex justify-between items-center mb-4">
-                                                <h3 class="text-lg font-semibold">Pencarian</h3>
-                                                <button @click="isOpen = false"
-                                                    class="text-xl text-gray-500">&times;</button>
-                                            </div>
-
-                                            <!-- Form Pencarian -->
-                                            <form action="{{ route('absen-rekap.index') }}" method="GET">
-                                                <div class="row mb-3">
-                                                    <div class="col-md-6">
-                                                        <label for="tanggalmasuk" class="form-label">Dari</label>
-                                                        <input type="date" class="form-control" id="tanggalmasuk"
-                                                            name="tanggalmasuk" x-model="tanggalMasuk">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label for="tanggalkeluar" class="form-label">Sampai</label>
-                                                        <input type="date" class="form-control" id="tanggalkeluar"
-                                                            name="tanggalkeluar" x-model="tanggalKeluar">
-                                                    </div>
-                                                </div>
-                                                <div class="flex justify-between">
-                                                    <button type="submit" class="btn btn-primary mt-4">Cari</button>
-                                                    <!-- Tombol Clear Pencarian -->
-                                                    <button type="button" @click="tanggalMasuk = ''; tanggalKeluar = ''"
-                                                        class="btn btn-warning mt-4">
-                                                        Clear
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 {{-- Isi rekap absen --}}
                                 <div class="table-responsive">
@@ -150,13 +148,12 @@
                                     {{ $absenrekap->withQueryString()->links() }}
                                 </div>
 
-
                             </div>
-
 
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
     </div>

@@ -11,50 +11,46 @@ class AbsenRekapController extends Controller
 {
     public function index(Request $request)
     {
-        // Ambil input tanggalmasuk dan tanggalkeluar dari request jika ada
-        $tanggalmasuk = $request->input('tanggalmasuk'); // Untuk pencarian berdasarkan tanggal masuk
-        $tanggalkeluar = $request->input('tanggalkeluar'); // Untuk pencarian berdasarkan tanggal keluar
+
+        // Ambil input tgl_absen_dari dan tgl_absen_sampai dari request untuk pencarian rentang tanggal
+        $tgl_absen_dari = $request->input('tgl_absen_dari');
+        $tgl_absen_sampai = $request->input('tgl_absen_sampai');
 
         // Ambil id_nik dari pengguna yang sedang login
-        $userId = Auth::user()->id_nik;  // Ganti dengan id_nik jika itu yang digunakan untuk pencarian
+        $userId = Auth::user()->id_nik;
 
-        // Jika ada pencarian berdasarkan tanggalmasuk dan tanggalkeluar
-        if ($tanggalmasuk && $tanggalkeluar) {
-            // Convert tanggal ke format Carbon
-            $tanggalmasuk = Carbon::parse($tanggalmasuk)->startOfDay();
-            $tanggalkeluar = Carbon::parse($tanggalkeluar)->endOfDay();
+        // Mulai query dengan pencarian berdasarkan nik_karyawan
+        $query = AbsenRekap::where('nik_karyawan', $userId);
 
-            // Cari berdasarkan rentang tanggal masuk dan keluar
-            $absenrekap = AbsenRekap::where('nik_karyawan', $userId)
-                ->whereDate('tanggalmasuk', '>=', $tanggalmasuk)  // Filter berdasarkan tanggal masuk
-                ->whereDate('tanggalkeluar', '<=', $tanggalkeluar) // Filter berdasarkan tanggal keluar
-                ->orderby('id', 'desc')
-                ->paginate(7);
+
+        // Jika ada pencarian berdasarkan $tgl_absen_dari dan $tgl_absen_sampai
+        if ($tgl_absen_dari && $tgl_absen_sampai) {
+            // Convert $tgl_absen_dari dan $tgl_absen_sampai ke format Carbon
+            $tgl_absen_dari = Carbon::parse($tgl_absen_dari)->startOfDay();
+            $tgl_cuti_sampai = Carbon::parse($tgl_absen_sampai)->endOfDay();
+
+            // Filter berdasarkan rentang tanggal
+            $query->whereBetween('tanggalmasuk', [$tgl_absen_dari, $tgl_absen_sampai]);
         }
-        // Jika hanya ada pencarian berdasarkan tanggalmasuk
-        elseif ($tanggalmasuk) {
-            // Filter berdasarkan tanggalmasuk yang spesifik
-            $absenrekap = AbsenRekap::where('nik_karyawan', $userId)
-                ->whereDate('tanggalmasuk', $tanggalmasuk)  // Menggunakan whereDate untuk pencarian tanggal masuk
-                ->orderby('id', 'desc')
-                ->paginate(7);
+        // Jika hanya ada pencarian berdasarkan $tgl_absen_dari
+        elseif ($tgl_absen_dari) {
+            // Filter berdasarkan $tgl_absen_dari
+            $tgl_absen_dari = Carbon::parse($tgl_absen_dari)->startOfDay();
+            $query->where('tanggalmasuk', '>=', $tgl_absen_dari);
         }
-        // Jika hanya ada pencarian berdasarkan tanggalkeluar
-        elseif ($tanggalkeluar) {
-            // Filter berdasarkan tanggalkeluar yang spesifik
-            $absenrekap = AbsenRekap::where('nik_karyawan', $userId)
-                ->whereDate('tanggalkeluar', $tanggalkeluar)  // Menggunakan whereDate untuk pencarian tanggal keluar
-                ->orderby('id', 'desc')
-                ->paginate(7);
+        // Jika hanya ada pencarian berdasarkan$tgl_absen_sampai
+        elseif ($tgl_absen_sampai) {
+            // Filter berdasarkan $tgl_absen_sampai
+            $tgl_absen_sampai = Carbon::parse($tgl_absen_sampai)->endOfDay();
+            $query->where('tanggalmasuk', '<=', $tgl_absen_sampai);
         }
-        // Jika tidak ada input pencarian, ambil data semua berdasarkan nik_karyawan
-        else {
-            $absenrekap = AbsenRekap::where('nik_karyawan', $userId)
-                ->orderby('id', 'desc')
-                ->paginate(7);
-        }
+
+
+
+        // Urutkan berdasarkan id dan paginate
+        $absenrekap = $query->orderby('id', 'desc')->paginate(7);
 
         // Kirim data ke view
-        return view('pages.absen-rekap.index', compact('absenrekap', 'tanggalmasuk', 'tanggalkeluar'));
+        return view('pages.absen-rekap.index', compact('absenrekap', 'tgl_absen_dari', 'tgl_absen_sampai'));
     }
 }

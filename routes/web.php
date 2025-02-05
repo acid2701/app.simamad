@@ -3,6 +3,7 @@
 use App\Http\Controllers\AbsenApmController;
 use App\Http\Controllers\AbsenRekapController;
 use App\Http\Controllers\AbsensiController;
+use App\Http\Controllers\AssetBarcodeController;
 use App\Http\Controllers\GajiController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\PakkuController;
@@ -38,4 +39,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('profile', KaryawanController::class);
     Route::resource('absensi', AbsensiController::class);
     Route::resource('cuti', CutiController::class);
+    Route::resource('asset-barcode', AssetBarcodeController::class);
+    Route::post('asset-barcode/scan-result', [AssetBarcodeController::class, 'scanresult'])->name('asset-barcode.scan-result');
 });
